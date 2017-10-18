@@ -9,8 +9,9 @@ class Questions(models.Model):
     option4 = models.CharField(max_length=300)
     answer = models.CharField(max_length=300)
     explanation = models.TextField(max_length=3000)
+
     def __str__(self):
-       return str(self.pk)
+        return str(self.pk)
 
     def get_options(self):
         return [self.option1, self.option2, self.option3, self.option4]
@@ -43,8 +44,4 @@ class User(models.Model):
     end_time = models.IntegerField(default=0)
 
     def __str__(self):
-       return str(self.pk)
-
-
-
-
+        return str(self.pk)

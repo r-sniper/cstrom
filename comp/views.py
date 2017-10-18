@@ -34,16 +34,16 @@ def check_login(request):
 def generate(request, user_id):
     all_user = list(User.objects.all().order_by('total_score'))
     all_user.reverse()
-    try:
-        f = open('helloo.txt', 'w')
-
-        for user in all_user:
-            code =str(user.user_name1 + " " + user.user_name2 + "  " + user.college_name1 + "  " + str(user.phone_number1) + "  "+ str(user.phone_number2)+ "  "+ str(user.total_score) +" \n\n ")#+ " " + user.user_name2 + " " + user.college_name1 + " " + user.phone_number1 + " " + user.phone_number2 + " " + user.total_score)
-
-            f.write(code)
-        f.close()
-    except:
-        print("not")
+    # try:
+    #     f = open('helloo.txt', 'w')
+    # 
+    #     for user in all_user:
+    #         code =str(user.user_name1 + " " + user.user_name2 + "  " + user.college_name1 + "  " + str(user.phone_number1) + "  "+ str(user.phone_number2)+ "  "+ str(user.total_score) +" \n\n ")#+ " " + user.user_name2 + " " + user.college_name1 + " " + user.phone_number1 + " " + user.phone_number2 + " " + user.total_score)
+    # 
+    #         f.write(code)
+    #     f.close()
+    # except:
+    #     print("not")
     easy = [x+1 for x in range(86)]
     random.shuffle(easy)
     medium = [x+86 for x in range(44)]
