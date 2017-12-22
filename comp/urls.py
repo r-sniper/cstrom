@@ -18,6 +18,8 @@ urlpatterns = [
     url(r'^leaderboard/(?P<user_id>[0-9]+)/$', views.leaderboard, name='leaderboard'),
     url(r'^instruction_view/(?P<user_id>[0-9]+)/$', views.instruction_view, name='instruction_view'),
 
+    url(r'^update/$', views.update_leaderboard, name='update_leaderboard')
+
 
 
 ]

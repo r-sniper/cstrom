@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse,render_to_response
+from django.shortcuts import render, HttpResponse, render_to_response
 from .models import Questions, User
 import random
 from operator import attrgetter
@@ -8,7 +8,7 @@ from subprocess import Popen, PIPE
 
 
 def register(request):
-    return render(request, 'comp/register.html')
+    return render(request, 'comp/register_new.html')
 
 
 def check_login(request):
@@ -28,8 +28,10 @@ def check_login(request):
                     college_name2=college2, user_name1=participant1, user_name2=participant2, email1=email1,
                     email2=email2)
     new_user.save()
-    #return generate(request,new_user.pk)
-    return instruction_view(request,new_user.pk )
+    # return generate(request,new_user.pk)
+    return instruction_view(request, new_user.pk)
+
+
 # Generate once user registers
 def generate(request, user_id):
     all_user = list(User.objects.all().order_by('total_score'))
@@ -44,9 +46,9 @@ def generate(request, user_id):
     #     f.close()
     # except:
     #     print("not")
-    easy = [x+1 for x in range(86)]
+    easy = [x + 1 for x in range(86)]
     random.shuffle(easy)
-    medium = [x+86 for x in range(44)]
+    medium = [x + 86 for x in range(44)]
     random.shuffle(medium)
     hard = [x + 130 for x in range(24)]
     random.shuffle(hard)
@@ -59,38 +61,42 @@ def generate(request, user_id):
     current_user.question_array_easy = json.dumps(easy)
     current_user.question_array_medium = json.dumps(medium)
     current_user.question_array_hard = json.dumps(hard)
-    current_user.count_easy=0
-    current_user.count_hard=0
-    current_user.count_medium=0
-    current_user.total_score=0
+    current_user.count_easy = 0
+    current_user.count_hard = 0
+    current_user.count_medium = 0
+    current_user.total_score = 0
     current_user.correct_answered = 3
-    current_user.level=1
+    current_user.level = 1
     current_user.user_bonus_clicked = False
-    current_user.user_bonus_activated=True
-    current_user.end_time= time.time()+(30*60)
-   # current_user.attempted_questions=easy[0]
+    current_user.user_bonus_activated = True
+    current_user.end_time = time.time() + (30 * 60)
+    # current_user.attempted_questions=easy[0]
     current_user.save()
 
-    #return HttpResponse("<h3>hii</h3>")
-    level="Easy"
+    # return HttpResponse("<h3>hii</h3>")
+    level = "Easy"
+    all_user = list(User.objects.all().order_by('total_score'))
+    all_user.reverse()
 
-    return render(request, 'comp/question.html', {'question': Questions.objects.get(pk=easy[0]),'user_id': user_id,'score':current_user.total_score,'enabled_skip':True , 'enabled_bonus':True, 'remaining_time' : '1800','level':level
-                                                     }
+    return render(request, 'comp/question_new.html',
+                  {'question': Questions.objects.get(pk=easy[0]), 'user_id': user_id, 'score': current_user.total_score,
+                   'enabled_skip': True, 'enabled_bonus': True, 'remaining_time': '1800', 'level': level,
+                   'all_user': all_user
+                   }
                   )
 
 
 # For next new Question or same Question if no option is selected
 def next(request, user_id):
-
     if request.POST.get("finish_test"):
         all_user = list(User.objects.all().order_by('total_score'))
         all_user.reverse()
-        #all_user = User.objects.all()
-        #all_user.sort(key=lambda x: x.total_score(),reverse= True)
+        # all_user = User.objects.all()
+        # all_user.sort(key=lambda x: x.total_score(),reverse= True)
         for user in all_user:
             print(user.total_score)
 
-        return render(request,'comp/leaderboard.html',{'user_id':int(user_id),'all_user':all_user})
+        return render(request, 'comp/leaderboard.html', {'user_id': int(user_id), 'all_user': all_user})
 
     selected_option = request.POST.get("option")
     correct = False
@@ -99,11 +105,9 @@ def next(request, user_id):
     attempted_question = Questions.objects.get(pk=selected_id)
     print(str(selected_option))
     print(str(selected_id))
-    counter=0
+    counter = 0
     bonus_activated = False
     current_user = User.objects.get(pk=user_id)
-
-
 
     current_user.save()
 
@@ -114,33 +118,35 @@ def next(request, user_id):
     if request.POST.get("bonus"):
         current_user.user_bonus_clicked = True
         current_user.save()
-        level=""
+        level = ""
         if current_user.level == 1:
-            level="Easy"
-        elif current_user.level ==2:
-            level="Medium"
+            level = "Easy"
+        elif current_user.level == 2:
+            level = "Medium"
         else:
-            level="Hard"
-        return render(request, 'comp/question.html',
+            level = "Hard"
+        return render(request, 'comp/question_new.html',
                       {'question': Questions.objects.get(pk=selected_id), 'user_id': user_id,
                        'enabled_skip': enabled_skip, 'enabled_bonus': False,
-                       'score': current_user.total_score ,'remaining_time': current_user.end_time-time.time()})
+                       'score': current_user.total_score, 'remaining_time': current_user.end_time - time.time()})
 
     if request.POST.get("next"):
         print(current_user.pk)
         print(current_user.login_name)
         print(current_user.attempted_questions)
+
         if selected_option in [None, '']:
             print("inside none")
             print(selected_id)
-            #print(current_user.user_bonus)
-            return render(request, 'comp/question.html',
+            # print(current_user.user_bonus)
+            return render(request, 'comp/question_new.html',
                           {'question': Questions.objects.get(pk=selected_id), 'user_id': user_id,
-                           'error_msg': 'Please select one option!', 'current_user': current_user,'score': current_user.total_score,'enabled_skip':enabled_skip,'enabled_bonus':current_user.user_bonus_activated,
-                           'remaining_time': current_user.end_time - time.time() })
+                           'error_msg': 'Please select one option!', 'current_user': current_user,
+                           'score': current_user.total_score, 'enabled_skip': enabled_skip,
+                           'enabled_bonus': current_user.user_bonus_activated,
+                           'remaining_time': current_user.end_time - time.time()})
 
         elif attempted_question.answer == selected_option:
-
 
             correct = True
             current_user.correct_answered += 1
@@ -166,20 +172,20 @@ def next(request, user_id):
                 question = jsonDec.decode(current_user.question_array_medium)
                 current_user.level = 2
                 current_user.total_score += 2
-                level="Medium"
+                level = "Medium"
                 if current_user.user_bonus_clicked == True:
-                    current_user.user_bonus_clicked=False
-                    current_user.user_bonus_activated=False
-                    bonus_activated=False
+                    current_user.user_bonus_clicked = False
+                    current_user.user_bonus_activated = False
+                    bonus_activated = False
                     current_user.total_score += 2
                 current_user.save()
             else:
                 counter = current_user.count_easy
                 current_user.total_score -= 1
-                level="Easy"
+                level = "Easy"
                 if current_user.user_bonus_clicked == True:
-                    current_user.user_bonus_clicked=False
-                    current_user.user_bonus_activated=False
+                    current_user.user_bonus_clicked = False
+                    current_user.user_bonus_activated = False
                     bonus_activated = False
                     current_user.total_score -= 3
                 current_user.save()
@@ -197,8 +203,8 @@ def next(request, user_id):
                 current_user.level = 3
                 current_user.total_score += 4
                 if current_user.user_bonus_clicked == True:
-                    current_user.user_bonus_clicked=False
-                    current_user.user_bonus_activated=False
+                    current_user.user_bonus_clicked = False
+                    current_user.user_bonus_activated = False
                     bonus_activated = False
                     current_user.total_score += 4
                 current_user.save()
@@ -209,8 +215,8 @@ def next(request, user_id):
                 current_user.level = 1
                 current_user.total_score -= 2
                 if current_user.user_bonus_clicked == True:
-                    current_user.user_bonus_clicked=False
-                    current_user.user_bonus_activated=False
+                    current_user.user_bonus_clicked = False
+                    current_user.user_bonus_activated = False
                     bonus_activated = False
                     current_user.total_score -= 6
                 current_user.save()
@@ -227,8 +233,8 @@ def next(request, user_id):
                 question = jsonDec.decode(current_user.question_array_hard)
                 current_user.total_score += 8
                 if current_user.user_bonus_clicked == True:
-                    current_user.user_bonus_clicked=False
-                    current_user.user_bonus_activated=False
+                    current_user.user_bonus_clicked = False
+                    current_user.user_bonus_activated = False
                     bonus_activated = False
                     current_user.total_score += 8
                 current_user.save()
@@ -239,8 +245,8 @@ def next(request, user_id):
                 current_user.level = 2
                 current_user.total_score -= 4
                 if current_user.user_bonus_clicked == True:
-                    current_user.user_bonus_clicked=False
-                    current_user.user_bonus_activated=False
+                    current_user.user_bonus_clicked = False
+                    current_user.user_bonus_activated = False
                     bonus_activated = False
                     current_user.total_score -= 4
                 current_user.save()
@@ -278,10 +284,18 @@ def next(request, user_id):
     else:
         enabled_skip = False
 
-    return render(request, 'comp/question.html',
+    all_user = User.objects.all().order_by('total_score').reverse()
+    rank = 0
+    for user in all_user:
+        rank += 1
+        if user == current_user:
+            break
+
+    return render(request, 'comp/question_new.html',
                   {'question': Questions.objects.get(pk=question[counter]), 'user_id': user_id,
                    'enabled_skip': enabled_skip, 'enabled_bonus': current_user.user_bonus_activated,
-                   'score': current_user.total_score , 'remaining_time': current_user.end_time-time.time(),'level':level})
+                   'score': current_user.total_score, 'remaining_time': current_user.end_time - time.time(),
+                   'level': level, 'current_rank': rank})
 
 
 # To print all Questions
@@ -289,20 +303,31 @@ def print_all_questions(request):
     all_questions = Questions.objects.all()
     return render(request, 'comp/print_all_questions.html', {'all_questions': all_questions})
 
+
 # leaderboard
-def leaderboard(request,user_id):
+def leaderboard(request, user_id):
     all_user = list(User.objects.all().order_by('total_score'))
     all_user.reverse()
     try:
         f = open('helloo.txt', 'w')
 
         for user in all_user:
-            code=user.user_name1 + " " +user.user_name2 + " " + user.college_name1 + " " + user.phone_number1 + " " + user.phone_number2 + " " + user.total_score
+            code = user.user_name1 + " " + user.user_name2 + " " + user.college_name1 + " " + user.phone_number1 + " " + user.phone_number2 + " " + user.total_score
             f.write(code)
         f.close()
     except:
         print("not")
     return render(request, 'comp/leaderboard.html', {'user_id': int(user_id), 'all_user': all_user})
 
-def instruction_view(request,user_id):
-    return render(request,'comp/instructions.html',{ 'user_id':user_id })
+
+def instruction_view(request, user_id):
+    return render(request, 'comp/instructions.html', {'user_id': user_id})
+
+
+def update_leaderboard(request):
+    leaderboard_dict = {}
+    all_user = User.objects.all().order_by('total_score').reverse()
+    for users in all_user:
+        leaderboard_dict[users.login_name] = users.total_score
+
+    return HttpResponse(json.dumps(leaderboard_dict))

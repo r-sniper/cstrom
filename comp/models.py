@@ -44,4 +44,4 @@ class User(models.Model):
     end_time = models.IntegerField(default=0)
 
     def __str__(self):
-        return str(self.pk)
+        return str(self.pk)+" "+str(self.login_name)
