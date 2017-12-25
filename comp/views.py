@@ -96,7 +96,7 @@ def next(request, user_id):
         for user in all_user:
             print(user.total_score)
 
-        return render(request, 'comp/leaderboard.html', {'user_id': int(user_id), 'all_user': all_user})
+        return render(request, 'comp/leaderboard_new.html', {'user_id': int(user_id), 'all_user': all_user})
 
     selected_option = request.POST.get("option")
     correct = False
@@ -317,11 +317,11 @@ def leaderboard(request, user_id):
         f.close()
     except:
         print("not")
-    return render(request, 'comp/leaderboard.html', {'user_id': int(user_id), 'all_user': all_user})
+    return render(request, 'comp/leaderboard_new.html', {'user_id': int(user_id), 'all_user': all_user})
 
 
 def instruction_view(request, user_id):
-    return render(request, 'comp/instructions.html', {'user_id': user_id})
+    return render(request, 'comp/instructions_new.html', {'user_id': user_id})
 
 
 def update_leaderboard(request):

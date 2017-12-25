@@ -31,7 +31,7 @@
     {% csrf_token %}
     <div class="container">
         <div class="row text-center">
-            <h1>C-Storm</h1>
+            <h1>EarnCode</h1>
         </div>
         <div class="row">
             <div class="col-md-4">
@@ -62,16 +62,16 @@
 
                 <div class="col-md-4">
                     {% if enabled_bonus %}
-                        <input class="btn btn-info" type="submit" value="bonus" name="bonus"/>
+                        <input class="btn btn-info" type="submit" value="Bonus" name="bonus"/>
                     {% else %}
-                        <input type="submit" value="bonus" name="bonus" disabled hidden/>
+                        <input type="submit" value="Bonus" name="bonus" disabled hidden/>
                     {% endif %}
                 </div>
                 <div class="col-md-4">
                     {% if enabled_skip %}
-                        <input class="btn btn-danger" type="submit" value="skip" name="skip"/>
+                        <input class="btn btn-danger" type="submit" value="Skip" name="skip"/>
                     {% else %}
-                        <input class="btn" type="submit" value="skip" name="skip" disabled/>
+                        <input class="btn" type="submit" value="Skip" name="skip" disabled/>
                     {% endif %}
                 </div>
                 <input type="text" name="id" id="id" value="{{ question.pk }}" hidden>
@@ -96,7 +96,7 @@
                 </div>
                 <div class="row text-center ">
                     <div class="col-md-2 col-md-offset-3">
-                        <input class="btn btn-primary" type="submit" value="Next" name="name">
+                        <input class="btn btn-primary" type="submit" value="Next" name="next">
                     </div>
                     <div class="col-md-2 col-md-offset-2">
                         <input class="btn btn-success" type="submit" value="Finish" name="finish_test"/>
