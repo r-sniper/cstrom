@@ -6,7 +6,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>C - Storm</title>
+    <title>EarnCode</title>
 
     <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,19 +20,88 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
 
+        html, body {
+            background: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        legend {
+            color: #0379C4;
+        }
+
+        .navbar {
+            box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.1);
+            background: white;
+            font-family: 'Roboto', sans-serif;
+            border-radius: 0;
+            padding: 6px;
+        }
+
+        .navbar-brand {
+            color: #0379C4 !important;
+            font-weight: bolder;
+        }
+
+        .navbar-default .navbar-nav > .active > a {
+
+        }
+
+        .navbar-default .navbar-nav > li {
+            font-weight: bold;
+        }
+
+        .navbar-default .navbar-nav > li:hover {
+            background-color: #cccccc;
+        }
+
+        .navbar-toggle {
+            border: none;
+        }
+
+        .navbar-toggle:active, .navbar-toggle:hover, .navbar-toggle:focus {
+            background: white !important;
+
+        }
+
         .table-responsive {
             max-height: 400px;
         }
+
     </style>
 </head>
 
 <body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><i class="glyphicon"></i>EarnCode</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-center">
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Finish</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <form action="{% url 'questions:next' user_id %}" method="post">
     {% csrf_token %}
     <div class="container">
-        <div class="row text-center">
-            <h1>EarnCode</h1>
-        </div>
+        {#        <div class="row text-center">#}
+        {#            <h1>EarnCode</h1>#}
+        {#        </div>#}
         <div class="row">
             <div class="col-md-4">
                 <div class="row">
@@ -182,18 +251,18 @@
         $.ajax({
             type: "POST",
             url: "{% url 'questions:update_leaderboard' %}",
-            data:{
+            data: {
                 csrfmiddlewaretoken: '{{ csrf_token }}'
             },
             success: function (data) {
                 {#alert(data);#}
                 let parsed = JSON.parse(data);
                 let table_body = document.getElementById('table_body');
-                while(table_body.firstChild) {
+                while (table_body.firstChild) {
                     table_body.removeChild(table_body.firstChild);
                 }
                 c = 1;
-                for(let i in parsed) {
+                for (let i in parsed) {
                     let row = document.createElement('tr');
                     let column = document.createElement('td');
                     column.innerHTML = c++;
