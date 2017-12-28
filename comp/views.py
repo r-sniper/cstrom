@@ -1,3 +1,4 @@
+import simplejson as simplejson
 from django.shortcuts import render, HttpResponse, render_to_response
 from .models import Questions, User
 import random
@@ -52,10 +53,10 @@ def generate(request, user_id):
     random.shuffle(medium)
     hard = [x + 130 for x in range(24)]
     random.shuffle(hard)
-    print(easy)
-    print(medium)
-    print(hard)
-    print(easy[0])
+    # print(easy)
+    # print(medium)
+    # print(hard)
+    # print(easy[0])
     current_user = User.objects.get(pk=user_id)
 
     current_user.question_array_easy = json.dumps(easy)
@@ -93,8 +94,8 @@ def next(request, user_id):
         all_user.reverse()
         # all_user = User.objects.all()
         # all_user.sort(key=lambda x: x.total_score(),reverse= True)
-        for user in all_user:
-            print(user.total_score)
+        # for user in all_user:
+            # print(user.total_score)
 
         return render(request, 'comp/leaderboard_new.html', {'user_id': int(user_id), 'all_user': all_user})
 
@@ -103,8 +104,8 @@ def next(request, user_id):
     jsonDec = json.decoder.JSONDecoder()
     selected_id = request.POST.get("id")
     attempted_question = Questions.objects.get(pk=selected_id)
-    print(str(selected_option))
-    print(str(selected_id))
+    # print(str(selected_option))
+    # print(str(selected_id))
     counter = 0
     bonus_activated = False
     current_user = User.objects.get(pk=user_id)
@@ -131,13 +132,13 @@ def next(request, user_id):
                        'score': current_user.total_score, 'remaining_time': current_user.end_time - time.time()})
 
     if request.POST.get("next"):
-        print(current_user.pk)
-        print(current_user.login_name)
-        print(current_user.attempted_questions)
+        # print(current_user.pk)
+        # print(current_user.login_name)
+        # print(current_user.attempted_questions)
 
         if selected_option in [None, '']:
-            print("inside none")
-            print(selected_id)
+            # print("inside none")
+            # print(selected_id)
             # print(current_user.user_bonus)
             return render(request, 'comp/question_new.html',
                           {'question': Questions.objects.get(pk=selected_id), 'user_id': user_id,
@@ -162,8 +163,8 @@ def next(request, user_id):
         current_user.attempted_questions += ("," + str(selected_id))
         current_user.save()
         if current_user.level == 1:
-            print("level 1")
-            print(current_user.level)
+            # print("level 1")
+            # print(current_user.level)
             current_user.count_easy += 1
             current_user.save()
 
@@ -191,9 +192,9 @@ def next(request, user_id):
                 current_user.save()
                 question = jsonDec.decode(current_user.question_array_easy)
         elif current_user.level == 2:
-            print("level 2")
-
-            print(current_user.level)
+            # print("level 2")
+            #
+            # print(current_user.level)
             current_user.count_medium += 1
             current_user.save()
             if correct == True:
@@ -221,9 +222,9 @@ def next(request, user_id):
                     current_user.total_score -= 6
                 current_user.save()
         else:
-            print("level 3")
-
-            print(current_user.level)
+            # print("level 3")
+            #
+            # print(current_user.level)
             current_user.count_hard += 1
             current_user.save()
 
@@ -275,10 +276,10 @@ def next(request, user_id):
             current_user.save()
             counter = current_user.count_hard
             question = jsonDec.decode(current_user.question_array_hard)
-        print(counter)
+        # print(counter)
 
         current_user.save()
-    print(counter)
+    # print(counter)
     if current_user.correct_answered >= 3:
         enabled_skip = True
     else:
@@ -295,7 +296,7 @@ def next(request, user_id):
                   {'question': Questions.objects.get(pk=question[counter]), 'user_id': user_id,
                    'enabled_skip': enabled_skip, 'enabled_bonus': current_user.user_bonus_activated,
                    'score': current_user.total_score, 'remaining_time': current_user.end_time - time.time(),
-                   'level': level, 'current_rank': rank})
+                   'level': level, 'current_rank': rank, 'current_team': current_user.login_name})
 
 
 # To print all Questions
@@ -325,9 +326,13 @@ def instruction_view(request, user_id):
 
 
 def update_leaderboard(request):
-    leaderboard_dict = {}
+    leaderboard_dict = []
     all_user = User.objects.all().order_by('total_score').reverse()
-    for users in all_user:
-        leaderboard_dict[users.login_name] = users.total_score
+    for user in all_user:
+        leaderboard_dict.append({user.login_name: user.total_score})
 
-    return HttpResponse(json.dumps(leaderboard_dict))
+    # sorted(leaderboard_dict.values())
+    # print(leaderboard_dict, "----------------------")
+
+    return HttpResponse(simplejson.dumps({'read': list(all_user.values_list('login_name', flat=True)),
+                                          'newest': list(all_user.values_list('total_score', flat=True))}))

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,82 +20,20 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-
         html, body {
             background: #fff;
             font-family: 'Roboto', sans-serif;
         }
-
         legend {
             color: #0379C4;
         }
-
-        .navbar {
-            box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.1);
-            background: white;
-            font-family: 'Roboto', sans-serif;
-            border-radius: 0;
-            padding: 6px;
-        }
-
-        .navbar-brand {
-            color: #0379C4 !important;
-            font-weight: bolder;
-        }
-
-        .navbar-default .navbar-nav > .active > a {
-
-        }
-
-        .navbar-default .navbar-nav > li {
-            font-weight: bold;
-        }
-
-        .navbar-default .navbar-nav > li:hover {
-            background-color: #cccccc;
-        }
-
-        .navbar-toggle {
-            border: none;
-        }
-
-        .navbar-toggle:active, .navbar-toggle:hover, .navbar-toggle:focus {
-            background: white !important;
-
-        }
-
         .table-responsive {
             max-height: 400px;
         }
-
     </style>
 </head>
 
 <body>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/"><i class="glyphicon"></i>EarnCode</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-            <ul class="nav navbar-nav navbar-center">
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Finish</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
 <form action="{% url 'questions:next' user_id %}" method="post">
     {% csrf_token %}
@@ -124,7 +63,8 @@
             <div class="col-md-4">
                 <h3>{{ level }}</h3>
             </div>
-            <div class="col-md-5 text-right col-md-offset-3">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 text-right">
                 <div class="col-md-4">
                     <h3>LIFELINES</h3>
                 </div>
@@ -173,7 +113,8 @@
                 </div>
             </div>
             <div class="col-md-4">
-                Leaderboard: Your Rank: {{ current_rank }}
+
+                Leaderboard: Your Rank: <label id="current_rank">{{ current_rank }}</label>
                 <div class="table-responsive">
                     <table class="table table-bordered white">
                         <thead class="thead-inverse">
@@ -204,26 +145,19 @@
 <script>
     function startTimer(duration, display) {
         var start = Date.now(),
-
             diff,
             minutes,
             seconds;
-
         function timer() {
             // get the number of seconds that have elapsed since
             // startTimer() was called
             diff = duration - (((Date.now() - start) / 1000) | 0);
-
             // does the same job as parseInt truncates the float
             minutes = (diff / 60) | 0;
             seconds = (diff % 60) | 0;
-
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
-
             display.textContent = minutes + ":" + seconds;
-
-
             if (diff <= 0) {
                 // add one second so that the count down starts at the full duration
                 // example 05:00 not 04:59
@@ -231,16 +165,13 @@
                 // window.location.replace("http:/comp/leaderboard/" );
                 window.location.replace(" {%url 'questions:leaderboard' user_id %}");
             }
-
         };
         // we don't want to wait a full second before the timer starts
         timer();
         setInterval(timer, 1000);
     }
-
     window.onload = function () {
         var v = "{{remaining_time}}";
-
         display = document.querySelector('#time');
         startTimer(v, display);
     };
@@ -255,25 +186,31 @@
                 csrfmiddlewaretoken: '{{ csrf_token }}'
             },
             success: function (data) {
-                {#alert(data);#}
                 let parsed = JSON.parse(data);
+                {#alert();#}
+                {#let parsed = JSON.parse(data);#}
+                {#alert(parsed.read);#}
                 let table_body = document.getElementById('table_body');
                 while (table_body.firstChild) {
                     table_body.removeChild(table_body.firstChild);
                 }
                 c = 1;
-                for (let i in parsed) {
+                for (let i in parsed.read) {
                     let row = document.createElement('tr');
                     let column = document.createElement('td');
                     column.innerHTML = c++;
                     row.appendChild(column);
                     column = document.createElement('td');
-                    column.innerHTML = i;
+                    column.innerHTML = parsed.read[i];
                     row.appendChild(column);
                     column = document.createElement('td');
-                    column.innerHTML = parsed[i];
+                    column.innerHTML = parsed.newest[i];
                     row.appendChild(column);
                     table_body.appendChild(row);
+                    {#alert({{ current_user.login_name }});#}
+                    if("{{ current_team }}"===parsed.read[i]){
+                        row.style.backgroundColor = "gray";
+                    }
                 }
             },
             complete: function () {
@@ -282,8 +219,6 @@
             }
         });
         return false; //<---- move it here
-
-
     });
 </script>
 
