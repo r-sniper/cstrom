@@ -38,7 +38,7 @@ def generate(request, user_id):
     all_user = list(User.objects.all().order_by('total_score'))
     all_user.reverse()
     # try:
-    #     f = open('helloo.txt', 'w')
+    #     f = open('requirement.txt', 'w')
     # 
     #     for user in all_user:
     #         code =str(user.user_name1 + " " + user.user_name2 + "  " + user.college_name1 + "  " + str(user.phone_number1) + "  "+ str(user.phone_number2)+ "  "+ str(user.total_score) +" \n\n ")#+ " " + user.user_name2 + " " + user.college_name1 + " " + user.phone_number1 + " " + user.phone_number2 + " " + user.total_score)
@@ -95,7 +95,7 @@ def next(request, user_id):
         # all_user = User.objects.all()
         # all_user.sort(key=lambda x: x.total_score(),reverse= True)
         # for user in all_user:
-            # print(user.total_score)
+        # print(user.total_score)
 
         return render(request, 'comp/leaderboard_new.html', {'user_id': int(user_id), 'all_user': all_user})
 
@@ -126,10 +126,18 @@ def next(request, user_id):
             level = "Medium"
         else:
             level = "Hard"
+
+        all_user = User.objects.all().order_by('total_score').reverse()
+        rank = 0
+        for user in all_user:
+            rank += 1
+            if user == current_user:
+                break
         return render(request, 'comp/question_new.html',
                       {'question': Questions.objects.get(pk=selected_id), 'user_id': user_id,
                        'enabled_skip': enabled_skip, 'enabled_bonus': False,
-                       'score': current_user.total_score, 'remaining_time': current_user.end_time - time.time()})
+                       'score': current_user.total_score, 'current_rank': rank,
+                       'remaining_time': current_user.end_time - time.time()})
 
     if request.POST.get("next"):
         # print(current_user.pk)
@@ -148,33 +156,32 @@ def next(request, user_id):
                            'remaining_time': current_user.end_time - time.time()})
 
         elif attempted_question.answer == selected_option:
-
             correct = True
             current_user.correct_answered += 1
             current_user.save()
+
         if attempted_question.option1 == selected_option:
-            current_user.attempted_answers += (", 1")
+            current_user.attempted_answers += ", 1"
         elif attempted_question.option2 == selected_option:
-            current_user.attempted_answers += (", 2")
+            current_user.attempted_answers += ", 2"
         elif attempted_question.option3 == selected_option:
-            current_user.attempted_answers += (", 3")
+            current_user.attempted_answers += ", 3"
         elif attempted_question.option4 == selected_option:
-            current_user.attempted_answers += (", 4")
+            current_user.attempted_answers += ", 4"
         current_user.attempted_questions += ("," + str(selected_id))
         current_user.save()
+
         if current_user.level == 1:
-            # print("level 1")
-            # print(current_user.level)
             current_user.count_easy += 1
             current_user.save()
 
-            if correct == True:
+            if correct is True:
                 counter = current_user.count_medium
                 question = jsonDec.decode(current_user.question_array_medium)
                 current_user.level = 2
                 current_user.total_score += 2
                 level = "Medium"
-                if current_user.user_bonus_clicked == True:
+                if current_user.user_bonus_clicked is True:
                     current_user.user_bonus_clicked = False
                     current_user.user_bonus_activated = False
                     bonus_activated = False
@@ -184,11 +191,11 @@ def next(request, user_id):
                 counter = current_user.count_easy
                 current_user.total_score -= 1
                 level = "Easy"
-                if current_user.user_bonus_clicked == True:
+                if current_user.user_bonus_clicked is True:
                     current_user.user_bonus_clicked = False
                     current_user.user_bonus_activated = False
                     bonus_activated = False
-                    current_user.total_score -= 3
+                    current_user.total_score -= 1
                 current_user.save()
                 question = jsonDec.decode(current_user.question_array_easy)
         elif current_user.level == 2:
@@ -197,13 +204,13 @@ def next(request, user_id):
             # print(current_user.level)
             current_user.count_medium += 1
             current_user.save()
-            if correct == True:
+            if correct:
                 level = "Hard"
                 counter = current_user.count_hard
                 question = jsonDec.decode(current_user.question_array_hard)
                 current_user.level = 3
                 current_user.total_score += 4
-                if current_user.user_bonus_clicked == True:
+                if current_user.user_bonus_clicked is True:
                     current_user.user_bonus_clicked = False
                     current_user.user_bonus_activated = False
                     bonus_activated = False
@@ -215,11 +222,11 @@ def next(request, user_id):
                 question = jsonDec.decode(current_user.question_array_easy)
                 current_user.level = 1
                 current_user.total_score -= 2
-                if current_user.user_bonus_clicked == True:
+                if current_user.user_bonus_clicked is True:
                     current_user.user_bonus_clicked = False
                     current_user.user_bonus_activated = False
                     bonus_activated = False
-                    current_user.total_score -= 6
+                    current_user.total_score -= 2
                 current_user.save()
         else:
             # print("level 3")
@@ -228,7 +235,7 @@ def next(request, user_id):
             current_user.count_hard += 1
             current_user.save()
 
-            if correct == True:
+            if correct:
                 level = "Hard"
                 counter = current_user.count_hard
                 question = jsonDec.decode(current_user.question_array_hard)
@@ -237,7 +244,7 @@ def next(request, user_id):
                     current_user.user_bonus_clicked = False
                     current_user.user_bonus_activated = False
                     bonus_activated = False
-                    current_user.total_score += 8
+                    current_user.total_score += 2
                 current_user.save()
             else:
                 level = "Medium"
@@ -245,7 +252,7 @@ def next(request, user_id):
                 question = jsonDec.decode(current_user.question_array_medium)
                 current_user.level = 2
                 current_user.total_score -= 4
-                if current_user.user_bonus_clicked == True:
+                if current_user.user_bonus_clicked:
                     current_user.user_bonus_clicked = False
                     current_user.user_bonus_activated = False
                     bonus_activated = False
@@ -254,12 +261,11 @@ def next(request, user_id):
 
     elif request.POST.get('skip'):
         current_user.attempted_questions += ("," + str(selected_id))
-        current_user.attempted_answers += (",")
+        current_user.attempted_answers += ","
         current_user.correct_answered -= 3
         current_user.save()
         if current_user.level == 1:
             level = "Easy"
-
             current_user.count_easy += 1
             current_user.save()
             counter = current_user.count_easy
@@ -309,15 +315,15 @@ def print_all_questions(request):
 def leaderboard(request, user_id):
     all_user = list(User.objects.all().order_by('total_score'))
     all_user.reverse()
-    try:
-        f = open('helloo.txt', 'w')
-
-        for user in all_user:
-            code = user.user_name1 + " " + user.user_name2 + " " + user.college_name1 + " " + user.phone_number1 + " " + user.phone_number2 + " " + user.total_score
-            f.write(code)
-        f.close()
-    except:
-        print("not")
+    # try:
+    #     f = open('requirement.txt', 'w')
+    # 
+    #     for user in all_user:
+    #         code = user.user_name1 + " " + user.user_name2 + " " + user.college_name1 + " " + user.phone_number1 + " " + user.phone_number2 + " " + user.total_score
+    #         f.write(code)
+    #     f.close()
+    # except:
+    #     print("not")
     return render(request, 'comp/leaderboard_new.html', {'user_id': int(user_id), 'all_user': all_user})
 
 

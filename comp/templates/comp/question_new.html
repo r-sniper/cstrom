@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +23,11 @@
             background: #fff;
             font-family: 'Roboto', sans-serif;
         }
+
         legend {
             color: #0379C4;
         }
+
         .table-responsive {
             max-height: 400px;
         }
@@ -47,7 +48,7 @@
                     <h4>TIMER</h4>
                 </div>
                 <div class="row">
-                    <h3 id="time">timer</h3>
+                    <h3 id="time" style="border: 1px solid black; padding: 2.5%; width: 22%;">timer</h3>
                 </div>
             </div>
             <div class="col-md-4 col-md-offset-4 text-right">
@@ -55,10 +56,11 @@
                     <h4>SCORE</h4>
                 </div>
                 <div class="row">
-                    <h3>{{ score }}</h3>
+                    <h3><strong style="border: 1px solid black; padding: 2.5%">{{ score }}</strong></h3>
                 </div>
             </div>
         </div>
+    <br>
         <div class="row">
             <div class="col-md-4">
                 <h3>{{ level }}</h3>
@@ -66,7 +68,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-4 text-right">
                 <div class="col-md-4">
-                    <h3>LIFELINES</h3>
+                    <h3 style="margin-top: 5px;">LIFELINES</h3>
                 </div>
 
                 <div class="col-md-4">
@@ -148,6 +150,7 @@
             diff,
             minutes,
             seconds;
+
         function timer() {
             // get the number of seconds that have elapsed since
             // startTimer() was called
@@ -170,6 +173,7 @@
         timer();
         setInterval(timer, 1000);
     }
+
     window.onload = function () {
         var v = "{{remaining_time}}";
         display = document.querySelector('#time');
@@ -208,7 +212,7 @@
                     row.appendChild(column);
                     table_body.appendChild(row);
                     {#alert({{ current_user.login_name }});#}
-                    if("{{ current_team }}"===parsed.read[i]){
+                    if ("{{ current_team }}" === parsed.read[i]) {
                         row.style.backgroundColor = "gray";
                     }
                 }
