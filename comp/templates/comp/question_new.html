@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-    <br>
+        <br>
         <div class="row">
             <div class="col-md-4">
                 <h3>{{ level }}</h3>
@@ -120,13 +120,9 @@
                 <div class="table-responsive">
                     <table class="table table-bordered white">
                         <thead class="thead-inverse">
-                        {% ifequal user_id user.pk %}
 
-                        <tr bgcolor="#BBBBBB" style="color:#000000">
-
-                            {% else %}
                         <tr>
-                    {% endifequal %}
+
 
                             <th>Rank</th>
                             <th>Team Name</th>
@@ -135,8 +131,11 @@
                         </thead>
                         <tbody id="table_body">
                         {% for user in all_user %}
-
+                            {% ifequal user_id user.pk %}
+                            <tr bgcolor="#BBBBBB" style="color:#000000">
+                                {% else %}
                             <tr>
+                            {% endifequal %}
                                 <td>{{ forloop.counter }}</td>
                                 <td>{{ user.login_name }}</td>
                                 <td>{{ user.total_score }}</td>
