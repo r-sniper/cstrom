@@ -120,7 +120,13 @@
                 <div class="table-responsive">
                     <table class="table table-bordered white">
                         <thead class="thead-inverse">
+                        {% ifequal user_id user.pk %}
+
+                        <tr bgcolor="#BBBBBB" style="color:#000000">
+
+                            {% else %}
                         <tr>
+                    {% endifequal %}
 
                             <th>Rank</th>
                             <th>Team Name</th>

@@ -50,7 +50,13 @@
             <tbody id="table_body">
             {% for user in all_user %}
 
-                <tr>
+                {% ifequal user_id user.pk %}
+
+                        <tr bgcolor="#BBBBBB" style="color:#000000">
+
+                            {% else %}
+                        <tr>
+                    {% endifequal %}
                     <td>{{ forloop.counter }}</td>
                     <td>{{ user.login_name }}</td>
                     <td>{{ user.college_name1 }}</td>
