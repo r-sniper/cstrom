@@ -76,7 +76,7 @@ def generate(request, user_id):
     current_user.level = 1
     current_user.user_bonus_clicked = False
     current_user.user_bonus_activated = True
-    current_user.end_time = time.time() + (30 * 60)
+    current_user.end_time = time.time() + (20 * 60)
     # current_user.attempted_questions=easy[0]
     current_user.save()
 
