@@ -15,6 +15,13 @@ def run_code():
     print("Thread started")
 
 def register(request):
+
+    data = json.load(open('main_comp_questions.json'))
+    for i in data:
+        new_question = Questions.objects.create(question=i['question'], option1=i['option1'], option2=i['option2'],
+                                                option3=i['option3'], option4=i['option4'], answer=i['answer'], explanation='.')
+        new_question.save()
+    print("done==================")
     return render(request, 'comp/register_new.html')
 
 
@@ -319,6 +326,7 @@ def print_all_questions(request):
 
 # leaderboard
 def leaderboard(request, user_id):
+
     all_user = list(User.objects.all().order_by('total_score'))
     all_user.reverse()
     # try:
