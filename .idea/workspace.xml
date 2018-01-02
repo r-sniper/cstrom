@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbf475a5-19af-4d13-a14d-eb865e9adf31" name="Default" comment="commit">
+      <change beforePath="$PROJECT_DIR$/.idea/cstrom.iml" afterPath="$PROJECT_DIR$/.idea/cstrom.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/comp/templates/comp/check.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/comp/templates/comp/instructions_new.html" afterPath="$PROJECT_DIR$/comp/templates/comp/instructions_new.html" />
+      <change beforePath="$PROJECT_DIR$/comp/templates/comp/leaderboard_new.html" afterPath="$PROJECT_DIR$/comp/templates/comp/leaderboard_new.html" />
+      <change beforePath="$PROJECT_DIR$/comp/templates/comp/question_new.html" afterPath="$PROJECT_DIR$/comp/templates/comp/question_new.html" />
+      <change beforePath="$PROJECT_DIR$/comp/templates/comp/register_new.html" afterPath="$PROJECT_DIR$/comp/templates/comp/register_new.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,8 +60,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4381">
-              <caret line="344" column="0" lean-forward="false" selection-start-line="344" selection-start-column="0" selection-end-line="344" selection-end-column="0" />
+            <state relative-caret-position="149">
+              <caret line="310" column="52" lean-forward="false" selection-start-line="310" selection-start-column="33" selection-end-line="310" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -63,9 +70,11 @@
       <file leaf-file-name="leaderboard.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp/templates/comp/leaderboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
+            <state relative-caret-position="450">
               <caret line="44" column="36" lean-forward="false" selection-start-line="44" selection-start-column="36" selection-end-line="45" selection-end-column="39" />
-              <folding />
+              <folding>
+                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,18 +82,18 @@
       <file leaf-file-name="question_new.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp/templates/comp/question_new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13">
-              <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+            <state relative-caret-position="144">
+              <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13">
-              <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+            <state relative-caret-position="1296">
+              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -93,8 +102,18 @@
       <file leaf-file-name="leaderboard_new.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp/templates/comp/leaderboard_new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="48" column="20" lean-forward="false" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+            <state relative-caret-position="54">
+              <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="print_all_questions.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/comp/templates/comp/print_all_questions.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -103,18 +122,8 @@
       <file leaf-file-name="register_new.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp/templates/comp/register_new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1430">
-              <caret line="110" column="57" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="135" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comp/static/comp/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+            <state relative-caret-position="126">
+              <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -123,7 +132,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
+            <state relative-caret-position="54">
               <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
               <folding />
             </state>
@@ -133,18 +142,18 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
+            <state relative-caret-position="432">
               <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="instructions_new.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="instructions_new.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/comp/templates/comp/instructions_new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1196">
-              <caret line="92" column="16" lean-forward="false" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
+            <state relative-caret-position="468">
+              <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -162,8 +171,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>next</find>
-      <find>for</find>
       <find>+= 1</find>
       <find>&amp;</find>
       <find>startTimer</find>
@@ -183,7 +190,6 @@
       <find>static</find>
       <find>pri</find>
       <find>p</find>
-      <find>print</find>
       <find>alert</find>
       <find>col-md</find>
       <find>score</find>
@@ -192,6 +198,9 @@
       <find>your</find>
       <find>rank</find>
       <find>bonus</find>
+      <find>print</find>
+      <find>.JS</find>
+      <find>BOOTS</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -215,14 +224,15 @@
         <option value="$PROJECT_DIR$/comp/templates/comp/question.html" />
         <option value="$PROJECT_DIR$/comp/urls.py" />
         <option value="$PROJECT_DIR$/comp/models.py" />
-        <option value="$PROJECT_DIR$/comp/templates/comp/register_new.html" />
         <option value="$PROJECT_DIR$/cstrom/settings.py" />
         <option value="$PROJECT_DIR$/helloo.txt" />
         <option value="$PROJECT_DIR$/requirement.txt" />
-        <option value="$PROJECT_DIR$/comp/templates/comp/instructions_new.html" />
-        <option value="$PROJECT_DIR$/comp/templates/comp/question_new.html" />
         <option value="$PROJECT_DIR$/comp/views.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/comp/templates/comp/leaderboard_new.html" />
+        <option value="$PROJECT_DIR$/comp/templates/comp/instructions_new.html" />
+        <option value="$PROJECT_DIR$/comp/templates/comp/register_new.html" />
+        <option value="$PROJECT_DIR$/comp/templates/comp/question_new.html" />
       </list>
     </option>
   </component>
@@ -259,7 +269,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -315,11 +324,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -348,10 +358,10 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="cstrom.settings" />
+        <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Program Files (x86)\Python36-32\python.exe" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -541,18 +551,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1316" height="783" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4094241" sideWeight="0.5052515" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.49785176" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33975086" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6165644" sideWeight="0.49702382" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15487422" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34764397" sideWeight="0.49695966" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4094241" sideWeight="0.49474847" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15865119" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -562,7 +573,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -571,22 +581,22 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4094241" sideWeight="0.5052515" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33975086" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.49785176" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.61744964" sideWeight="0.49702382" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15520945" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34764397" sideWeight="0.49695966" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4094241" sideWeight="0.49474847" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15865119" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -623,13 +633,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/comp/templates/comp/question.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3587">
-          <caret line="218" column="0" lean-forward="false" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cstrom/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -794,16 +797,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comp/static/comp/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
+        <state relative-caret-position="90">
           <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comp/templates/comp/print_all_questions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -823,38 +819,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comp/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
+        <state relative-caret-position="54">
           <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comp/templates/comp/leaderboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="44" column="36" lean-forward="false" selection-start-line="44" selection-start-column="36" selection-end-line="45" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comp/templates/comp/register_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1430">
-          <caret line="110" column="57" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="135" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main_comp_user.csv" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/fbf5909f-64b7-4a0e-90ad-575ab0d89757/console.sql" />
-    <entry file="file://$PROJECT_DIR$/comp/templates/comp/leaderboard_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="48" column="20" lean-forward="false" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/comp/static/comp/images/WordArt.jpeg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -883,7 +855,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
+        <state relative-caret-position="432">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
@@ -908,30 +880,6 @@
     <entry file="das://table:/6dbce54f/d28d9347-d790-417a-962d-2ded276b7ed7/main.comp_user" />
     <entry file="file://$PROJECT_DIR$/../main_comp_questions.csv" />
     <entry file="das://table:/6dbce54f/d28d9347-d790-417a-962d-2ded276b7ed7/main.comp_questions" />
-    <entry file="file://$PROJECT_DIR$/comp/templates/comp/question_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="175" column="0" lean-forward="false" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comp/templates/comp/instructions_new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1196">
-          <caret line="92" column="16" lean-forward="false" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4381">
-          <caret line="344" column="0" lean-forward="false" selection-start-line="344" selection-start-column="0" selection-end-line="344" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/comp/static/comp/images/ea.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -939,8 +887,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        <state relative-caret-position="1296">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp/templates/comp/leaderboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="44" column="36" lean-forward="false" selection-start-line="44" selection-start-column="36" selection-end-line="45" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp/templates/comp/check.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="310" column="52" lean-forward="false" selection-start-line="310" selection-start-column="33" selection-end-line="310" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp/templates/comp/print_all_questions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp/templates/comp/register_new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp/templates/comp/leaderboard_new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp/templates/comp/question_new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp/templates/comp/instructions_new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding />
         </state>
       </provider>

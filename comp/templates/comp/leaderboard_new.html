@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load staticfiles %}
     <meta charset="UTF-8">
-    <title>Leaderboard</title>
+    <title>Leaderboard | EarnCode</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>C - Storm</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="{% static '/comp/css/font.css' %}" rel="stylesheet">
+    <script src="{% static '/comp/js/jquery.min.js' %}"></script>
     <link rel="stylesheet"
-          href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css">
-    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+          href="{% static '/comp/css/jquery-ui.min.css' %}">
+    <script src="{% static '/comp/js/jquery-ui.min.js' %}"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static '/comp/css/bootstrap.min.css' %}">
 
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static '/comp/js/bootstrap.min.js' %}"></script>
 
     <style>
-        .leader{
+        .leader {
             background: whitesmoke;
         }
     </style>
@@ -35,32 +34,35 @@
             <H3>LEADER BOARD</H3>
         </div>
     </div>
-<div class="row leader">
-    <div class="table-responsive">
-        <table class="table table-bordered white">
-            <thead class="thead-inverse">
-            <tr>
-
-                <th>Rank</th>
-                <th>Team Name</th>
-                <th>College</th>
-                <th>Score</th>
-            </tr>
-            </thead>
-            <tbody id="table_body">
-            {% for user in all_user %}
-
+    <div class="row leader">
+        <div class="table-responsive">
+            <table class="table table-bordered white">
+                <thead class="thead-inverse">
                 <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ user.login_name }}</td>
-                    <td>{{ user.college_name1 }}</td>
-                    <td>{{ user.total_score }}</td>
+
+                    <th>Rank</th>
+                    <th>Team Name</th>
+                    <th>College</th>
+                    <th>Score</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody id="table_body">
+                {% for user in all_user %}
+                    {% ifequal user_id user.pk %}
+                        <tr bgcolor="#BBBBBB" style="color:#000000">
+                            {% else %}
+                        <tr>
+                    {% endifequal %}
+                <td>{{ forloop.counter }}</td>
+                <td>{{ user.login_name }}</td>
+                <td>{{ user.college_name1 }}</td>
+                <td>{{ user.total_score }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
 </div>
 </body>
