@@ -60,11 +60,11 @@ def generate(request, user_id):
     #     f.close()
     # except:
     #     print("not")
-    easy = [x + 1 for x in range(86)]
+    easy = [x + 1 for x in range(10)]
     random.shuffle(easy)
-    medium = [x + 86 for x in range(44)]
+    medium = [x + 10 for x in range(10)]
     random.shuffle(medium)
-    hard = [x + 130 for x in range(24)]
+    hard = [x + 20 for x in range(10)]
     random.shuffle(hard)
     # print(easy)
     # print(medium)
