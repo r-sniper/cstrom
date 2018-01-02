@@ -8,6 +8,12 @@ import time
 from subprocess import Popen, PIPE
 
 
+
+def run_code():
+
+
+    print("Thread started")
+
 def register(request):
     return render(request, 'comp/register_new.html')
 
